@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+    {{super()}}
+    <div class="container h-100">
+        <div class="row align-items-center h-100">
+            <div class="col-md-8 col-sm-12 mx-auto">
+                <div class="h-100 justify-content-center">
+                    <div class="chat-container" style="overflow: auto; max-height: 80vh">
+                        <!-- chat messages -->
+                    </div>
+                    <form id="target">
+                       <input class="input" type="text" value="" placeholder="Enter message..." id="input_message"/>
+                       <input type="submit" hidden>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <p>Usage</p>
+    </div>
+
+{% endblock %}
