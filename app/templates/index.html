@@ -1,23 +1,115 @@
-{% extends 'base.html' %}
-{% block content %}
-    {{super()}}
-    <div class="container h-100">
-        <div class="row align-items-center h-100">
-            <div class="col-md-8 col-sm-12 mx-auto">
-                <div class="h-100 justify-content-center">
-                    <div class="chat-container" style="overflow: auto; max-height: 80vh">
-                        <!-- chat messages -->
-                    </div>
-                    <form id="target">
-                       <input class="input" type="text" value="" placeholder="Enter message..." id="input_message"/>
-                       <input type="submit" hidden>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <p>Usage</p>
-    </div>
+<!doctype html>
+<html lang="en">
+ <head>
+     <!-- Required meta tags -->
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <!-- Bootstrap CSS -->
+   <!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
 
-{% endblock %}
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.0/css/mdb.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+   <title>MOJO</title>
+ </head>
+ <style>
+   body{
+     background-image: url('http://getwallpapers.com/wallpaper/full/e/8/2/241953.jpg');
+     background-repeat: no-repeat;
+     background-size: cover;
+     height: 100%;
+     width: 100%;
+     background-attachment: fixed;
+   }
+   .logo{
+     color:#8E24AA;
+     text-align: center;
+     margin-top: 10px;
+     background-color: #FAFAFA;
+     border-radius:45px;
+     padding: 10px;
+     width: 500px;
+
+   }
+   span{
+     font-size:2em;
+   }
+   .chat-container{
+     background:#FAFAFA;
+    
+     padding: 10px;
+     border-radius: 20px;
+   }
+
+   .bot-message {
+  background: #F5F5F5;
+  color: black;
+  border-radius: 25px;
+  font-size: 20px;
+  
+}
+
+.human-message {
+  background:#BA68C8;
+  color: white;
+  margin: 13px 1px;
+  font-size:20px;
+  border-radius: 17px;
+
+}
+
+.instructions{
+    background-color: #FAFAFA;
+    width:450px;
+    padding: 15px;
+}
+.hero{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+ </style>
+ <body>
+     <div class="hero"> 
+            <div class="logo">
+                    <h1><span>m<i class="fas fa-play-circle"></i>jo</span></h1>
+                  </div>
+                  <br>
+                  <div class="instructions">
+                      
+                       <h2>Instructions</h2>
+                       <hr>
+                       To get a track, send the following command to get a track <br>
+                       <strong>@getlyrics track _by artist</strong> <br>
+                       example : @getlyrics perfect_by ed sheeran.
+                  </div>
+     </div>
+     <div class="container h-100">
+       <div class="row align-items-center h-100">
+           <div class="col-md-8 col-sm-12 mx-auto">
+               <div class="h-100 justify-content-center">
+                   <div class="chat-container" style="overflow: auto; max-height: 80vh">
+                       <!-- chat messages -->
+                   </div>
+                   <form id="target">
+                      <input class="input" type="text" value="" placeholder="Talk to me....." id="input_message"/>
+                      <input type="submit" hidden>
+                   </form>
+               </div>
+           </div>
+       </div>
+   </div>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+   <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
+   <script src="{{ url_for('static', filename='script.js')}}"></script>
+ </body>
+</html>
